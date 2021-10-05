@@ -1,0 +1,33 @@
+@use 'imports.scss'as *;
+@use "sass:math";
+
+.insta-feed {
+    padding: 50px 0;
+    .grid-fixed {
+        > * {
+            grid-column: 1 / span 12;
+        }
+        .sbi_photo {
+            background: $nude;
+            clip-path: circle(50%);
+        }
+    }
+    @media (max-width: $mobile-bp) {
+        #sbi_images {
+            display: flex;
+            > *:nth-child(4),
+            > *:nth-child(5),
+            > *:nth-child(6) {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.booking-embed {
+    .grid-fixed {
+        > * {
+            grid-column: 1 / span 12;
+        }
+    }
+}

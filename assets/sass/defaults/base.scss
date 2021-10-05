@@ -1,0 +1,390 @@
+@use 'imports.scss'as *;
+@use 'sass:math';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* LAYOUT */
+
+html,
+body {
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+
+body {
+
+    &.page {
+        margin-bottom: 0;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+/* Typography  */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    @include pStyle;
+}
+
+h1 {
+    @include h1Style($black);
+}
+
+h2 {
+    @include h2Style($black);
+}
+
+h3 {
+    @include h3Style($black);
+}
+
+ul,
+ol,
+p {
+    @include pStyle;
+    margin-bottom: math.div($spacer, 1.5);
+}
+
+.has-large-font-size {
+    font-size: unset;
+}
+
+main {
+
+    ul,
+    ol {
+        padding-left: $spacer;
+    }
+}
+
+.detail {
+    @include detailStyle($black);
+}
+
+/* Colors */
+body {
+    background: $white;
+    color: $black;
+}
+
+a,
+a:visited {
+    color: $black;
+    text-decoration: none;
+    opacity: 1;
+    transition: $transition;
+}
+
+.nav-links,
+p, ul, ol {
+    a {
+        font-style: normal;
+        transition: 0.3s ease all;
+    }
+    a:hover {
+        color: inherit;
+        font-style: italic;
+    }
+}
+
+
+button {
+    a:hover,
+    a:focus,
+    a:active {
+        color: inherit;
+        font-style: normal;
+    }
+}
+
+
+// general layouts 
+
+.full-padded-container {
+    max-width: 100%;
+    padding: 0 $spacer;
+    width: 100%;
+    margin: $spacer*3 auto;
+
+    @media (max-width: $full-padded-container) {
+        padding: 0 $spacer;
+    }
+}
+
+.contained {
+    max-width: $big-container;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: $big-container) {
+        padding: 0 $spacer;
+    }
+}
+
+.wide-container {
+    max-width: $big-container;
+    width: 100%;
+    margin: $spacer*3 auto;
+
+    @media (max-width: $big-container) {
+        padding: 0 $spacer;
+    }
+}
+
+.narrow-contain {
+    max-width: $narrow-container;
+    width: 100%;
+    margin: $spacer*3 auto;
+
+    @media (max-width: $narrow-container) {
+        padding: 0 $spacer;
+    }
+}
+
+.flex-2 .wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    @media (max-width: $collapse-bp) {
+        flex-direction: column;
+    }
+}
+
+
+
+.card-thumbnail,
+.thumbnail {
+    overflow: hidden;
+    object-fit: cover;
+
+    img {
+        height: 100%;
+    }
+}
+
+.full-banner {
+    padding: $spacer*4;
+}
+
+.edit-link {
+    display: none;
+}
+
+.screenread {
+    display: none;
+}
+
+// responsive media
+// .wp-block-embed {
+.wp-block-embed__wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    height: 0;
+
+    iframe {
+        background: $sand;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+
+// repeated sections
+
+// section - featured category square links 
+section.featuredcats {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $big-container) {
+        padding: 0 $spacer;
+    }
+
+    >* {
+        background: $sand;
+        @include h1Style($white);
+        flex: 0 0 24%;
+        padding: $spacer*4 $spacer;
+        text-align: center;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+
+
+@media (max-width: $collapse-bp) {
+    .mobile-overlap {
+        @include mobileOverlap(400px);
+    }
+}
+
+
+
+// search & 404
+
+.no-results,
+.not-found {
+    margin-bottom: $spacer*4;
+    text-align: center;
+}
+
+.error-404 {
+    main {
+        margin-bottom: 0;
+    }
+
+    .featuredcats {
+        margin-top: 0;
+    }
+
+    >* {
+        padding: $spacer*2 0;
+    }
+}
+
+
+
+/// 
+
+@media (max-width: $collapse-bp) {
+
+    section.featuredcats {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        >* {
+            margin: $spacer;
+            flex: 100%;
+        }
+    }
+
+}
+
+
+.sr-only {
+    display: none;
+}
+
+
+.fadeOut {
+    @include animateOpacityReverse;
+}
+
+.align-text-center {
+    text-align: center;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+
+    &.align-center {
+        justify-content: center;
+        align-items: center;
+    }
+
+    &.align-start {
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &.align-end {
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &.align-equal {
+        justify-content: space-between;
+    }
+
+    .col {
+        flex: 1;
+    }
+}
+
+ul.menu {
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+.flex-row {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.visually-hidden {
+    display: none;
+}
+.entry-content,
+.entry-summary {
+    img {
+        width: auto;
+        height: auto;
+    }
+}
+
+.nav-links {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    .nav-previous {
+        text-align: right;
+    }
+    .nav-next {
+        text-align: left;
+    }
+    .nav-previous + .nav-next {
+        padding-left: 5px;
+        &::before {
+            content: '/';
+            padding-right: 5px;
+        }
+    }
+    a,
+    li a {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration: underline;
+    }
+}
+
+@media (max-width: $nav-bp) {
+    #wpadminbar {
+        overflow: hidden;
+    }
+}

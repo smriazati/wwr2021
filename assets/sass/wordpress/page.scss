@@ -1,0 +1,21 @@
+@use 'imports.scss' as *;
+
+body.page article.page {
+    @include containerVertPadding;
+    .entry-header,
+    .entry-content {
+        grid-column: 3 / span 7;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+        }
+    }
+}
+
+.entry-content {
+    h2, h3, h4 {
+        margin-bottom: 20px;
+    }
+    p, ul, ol + p, ul, ol {
+        margin-bottom: 20px;
+    }
+}

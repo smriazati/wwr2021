@@ -1,0 +1,37 @@
+{
+  "name": "wwr2021",
+  "version": "1.0.0",
+  "description": "custom theme built by Otherlove",
+  "author": "Otherlove",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^9.0.0",
+    "dir-archiver": "^1.1.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^5.0.0",
+    "node-sass": "^6.0.1",
+    "rtlcss": "^2.5.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "scss": "gulp sass",
+    "watch": "gulp watch"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "sass": "^1.38.0"
+  }
+}

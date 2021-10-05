@@ -1,0 +1,131 @@
+$mobile-bp: 960px;
+
+.serif {
+    font-family: 'freight-big-pro', serif;
+    font-style: normal;
+    font-weight: normal;
+}
+.sans-serif {
+    font-family: 'Founders Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+@mixin h2Style($color) {
+    color: $color;
+    font-family: 'freight-big-pro', serif;    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+}
+
+@mixin h1Style($color) {
+    color: $color;
+    font-family: 'freight-big-pro', serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 44px;
+    line-height: 44px;    
+    letter-spacing: 0.02em;
+    @media (max-width: $mobile-bp) {
+        @include h2Style(rgba(0, 26, 40, 1));
+    }
+}
+
+
+@mixin h3Style($color) {
+    color: $color;
+    font-family: 'freight-big-pro', serif;    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 26px;
+}
+
+
+@mixin h4Style($color) {
+    color: $color;
+    font-family: 'freight-big-pro', serif;    
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+
+@mixin pStyle() {
+    font-family: 'Founders Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+}
+
+@mixin pSmallStyle() {
+    font-family: 'Founders Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13.5px;
+    line-height: 16px;
+}
+
+@mixin detailStyle($color) {
+    font-family: 'Founders Grotesk', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;    
+    letter-spacing: 0.02em;
+}
+
+@mixin captionStyle($color) {
+    @include detailStyle($color)
+}
+
+@mixin buttonTypeStyle($color) {
+    font-family: 'Founders Grotesk', sans-serif;
+    color: $color;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+@mixin unsetList() {
+    list-style-type: none;
+    padding: 0;
+}
+
+@mixin headingWithLine() {
+    @media (min-width: $collapse-bp) {
+        flex: 1 0 100%;
+        padding-bottom: $spacer*2;
+    }
+    @media (max-width: $collapse-bp) {
+        margin: $spacer*2;
+    }
+    display: flex;
+    align-items: center;
+    
+    h1, h2, h3, h4 {
+        @include h1Style($black);
+        font-family: 'Baskervville', serif;
+        flex: 0;
+        @media (min-width: $collapse-bp) {
+            white-space: nowrap;
+        }
+    }
+
+    &::after {
+        content: ' ';
+        border-bottom: 2px solid $sand;
+        display: block;
+        // height: 50%;
+        flex: 1;
+        margin-left: $spacer*2;
+    }
+}

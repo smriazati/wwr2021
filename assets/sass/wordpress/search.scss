@@ -1,0 +1,111 @@
+@use 'imports.scss' as *;
+
+main.site-main.search-wrapper {
+    @include containerVertPadding;
+    > article { 
+        margin-top: 40px;
+        margin-bottom: 40px;
+        grid-row-gap: 0;
+        > * {      
+            grid-column: span 2;
+            grid-row: 1 / 2;
+        }
+        .entry-header {
+            padding-top: 30px;
+            grid-column: 7 / span 3;
+            h2 {
+                font-size: 28px;
+                line-height: 30px;
+                margin-bottom: 10px;
+            }
+            p {
+                padding-top: 10px;
+            }
+            @media (max-width: $mobile-bp) {
+                grid-column: 7 / 13;
+                padding: 0;
+            }
+        }
+        .post-thumbnail-wrapper {
+            grid-column: 4 / span 3;
+            
+            grid-row: 1 / 3;
+            background:$nude;
+            border-radius: 10px;
+            height: 0;
+            padding-bottom: 100%;
+            overflow: hidden;
+            img {
+                max-width: 100%;
+                width: auto;
+                height: auto;
+                object-fit: cover;
+            }
+            @media (max-width: $mobile-bp) {
+                grid-column: 1 / span 6;
+                overflow: hidden;
+                place-self: center;
+            }
+        }
+        .entry-footer {
+            display: none;
+        }
+    }
+    
+    > header {
+        border-bottom: 1px solid $black;
+        h1 {
+            text-align: center;
+            grid-column: 2 / span 11;
+        }
+    }
+
+    > nav {
+        margin-bottom: 80px;
+        .nav-links {
+            grid-column: 2 / span 11; 
+        } 
+    }
+}
+
+// inline search form
+input {
+    font-family: 'DM Sans', sans-serif;
+}
+main form.search-form {
+    min-width: 450px;
+    color: $black;
+    @media (max-width: 450px) {
+        min-width: 90%;
+    }
+    border: 1px solid $black;
+    border-radius: 100px;
+    .wrapper {
+        display: flex;
+        width: 90%;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    position: relative;
+    input.search-field {
+        flex: 2;
+        text-align: center;
+        &::placeholder {
+            color: $black;
+        }
+    }
+    button .icon {
+        display: flex;
+    }
+}   
+
+
+    section.no-results.not-found {
+        display: flex;
+        flex-direction: column;
+        form {
+            margin: 15px auto;
+            max-width: 300px;
+        }
+    }

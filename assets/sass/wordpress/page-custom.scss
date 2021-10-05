@@ -1,0 +1,522 @@
+@use 'imports.scss'as *;
+@use "sass:math";
+
+
+/* ABOUT */
+section.about-bio {
+    // rely on .bio for base styles
+    background: $nude;
+    padding: 125px 0;
+    margin-bottom: 0;
+    .grid-fixed {
+        .text-wrapper {
+            grid-column: 1 / span 6;
+            h2 {
+                margin-bottom: 40px;
+                font-size: 44px;
+                line-height: 44px;
+            }
+            p {
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 20px;
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .image-wrapper {
+            grid-column: span 4 / 13;
+        }
+    }
+}
+
+section.about-featured-pages {
+    padding: 0;
+    .grid-fixed {
+        grid-template-rows: min-content;
+    }
+    .card {
+        justify-content: center;
+        .text-wrapper {
+            flex: 0;
+        }
+        .image-wrapper {
+            flex: 0 0 50%;
+        }
+    }
+    .card-1 {
+        @media (max-width: $mobile-bp) {
+            margin-bottom: 0px;
+        }
+    }
+
+}
+
+
+/* CLINIC */
+section.clinic-featured-pages {
+    padding: 0;
+    margin: 0;
+    background: $white;
+    .grid-fixed {
+        grid-template-rows: min-content;
+    }
+    .title-wrapper {
+        > * {
+            transform: none;
+            white-space: unset;
+            max-width: 9ch;
+            text-align: left;
+        }
+        @media (min-width: $mobile-bp) {
+            grid-column: 1 / span 3;
+        }
+        justify-content: flex-start;
+    }
+    .card {
+        @media (min-width: $mobile-bp) {
+            grid-column: span 3;
+        }
+        justify-content: center;
+        .text-wrapper {
+            flex: 0;
+        }
+        .image-wrapper {
+            flex: 0 0 50%;
+        }
+    }
+    .card-3 {
+        width: auto;
+    }
+    @media (max-width: $mobile-bp) {
+        margin-bottom: 30px;
+        .card-1 {
+            margin-bottom: 0px;
+        } 
+    }
+}
+
+section.clinic-info {
+    padding: 125px 0;
+    .text-wrapper {
+        grid-column: 2 / span 3;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+            grid-row: 2 / 3;
+        }
+        h2 {
+            font-size: 44px;
+            line-height: 44px;
+            margin-bottom: 30px;
+        }
+        h3 {
+            font-size: 32px;
+            line-height: 32px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        p, ul {
+            font-size: 16px;
+            line-height: 24px;
+        }
+        p + p {
+            margin-top: 15x;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li + li {
+            margin-top: 5px;
+        }
+    }
+    .image-wrapper {
+        grid-column: span 6 / 13;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+            grid-row: 1 / 2;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+section.clinic-services {
+    padding: 125px 0;
+    background: $nude;
+    .grid-fixed {
+        grid-row-gap: 100px;
+    }
+    .card:nth-child(even) {
+        grid-column: 8 / span 3;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+        }
+    }
+    .card:nth-child(odd) {
+        grid-column: 2 / span 3;
+        @media (max-width: $mobile-bp) {
+            @media (max-width: $mobile-bp) {
+                grid-column: 1 / span 12;
+            }
+        }
+    }
+    @media (max-width: $mobile-bp) {
+        .card:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+    h3 {
+        font-size: 32px;
+        line-height: 32px;
+        margin-bottom: 15px;
+    }
+}
+
+
+/* WELLNESS CTR */
+
+main.wellness-ctr-main {
+    @media (min-width: $mobile-bp) {
+        background: $nude;
+    }
+    section.overlay {
+        top: 125px !important;
+        @media (max-width: $mobile-bp) {
+            margin-top: -60px;
+            z-index: 10;
+        }
+    }
+    button:hover {
+        .icon-arrow::after {
+            background: $pink;
+        }
+    }
+}
+
+section.wellness-ctr-info {
+    padding: 125px 0;
+    @media (max-width: $mobile-bp) {
+        background: $nude;
+    }
+    .text-wrapper {
+        grid-column: 8 / span 4;
+        grid-row: 1 / 2;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+            grid-row: 2 / 3;
+        }
+        h2 {
+            font-size: 44px;
+            line-height: 44px;
+            margin-bottom: 30px;
+        }
+        h3 {
+            font-size: 32px;
+            line-height: 32px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        p, ul {
+            font-size: 16px;
+            line-height: 24px;
+        }
+        p + p {
+            margin-top: 15x;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li + li {
+            margin-top: 5px;
+        }
+    }
+    .image-wrapper {
+        grid-column: 1 / span 5;
+        grid-row: 1 / 2;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+            grid-row: 1 / 2;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+section.overlay {
+    // padding-top: 125px;
+
+    @media (min-width: $mobile-bp) {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .image-wrapper {
+        grid-column: 1 / span 5;
+        grid-row: 1 / 2;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+            grid-row: 1 / 2;
+            margin-bottom: 30px;
+        }
+    }
+}
+.overlay-top {
+    @media (min-width: $mobile-bp) {
+        position: relative;
+        z-index: 12;
+    }
+}
+.wrapper-for-overlay {
+    position: relative;
+}
+
+section.wellness-ctr-services {
+    padding: 175px 0;
+    @media (max-width: $mobile-bp) {
+        padding-top: 50px;
+    }
+    background: $white;
+
+    .grid-fixed {
+        grid-row-gap: 50px;
+    }
+    .card:nth-child(even) {
+        grid-column: 8 / span 3;
+        @media (max-width: $mobile-bp) {
+            grid-column: 1 / span 12;
+        }
+    }
+    .card:nth-child(odd) {
+        grid-column: 2 / span 3;
+        @media (max-width: $mobile-bp) {
+            @media (max-width: $mobile-bp) {
+                grid-column: 1 / span 12;
+            }
+        }
+    }
+    @media (max-width: $mobile-bp) {
+        .card:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+    h3 {
+        font-size: 32px;
+        line-height: 32px;
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+// main.wellness-ctr-main.has-overlay {
+//     @media (max-width: $mobile-bp) {
+//         background: $white;
+//         display: flex;
+//         flex-direction: column;
+//         .wellness-ctr-info {
+//             background: $nude;
+//         }
+//         .overlay {
+//             position: relative;
+//             z-index: 11;
+//             margin-top: -35%;
+//         }
+//         .wellness-ctr-info {
+//             order: 1;
+//         }
+//         .overlay {
+//             order: 2;
+//         }
+//         .wellness-ctr-services {
+//             order: 3;
+//         }
+//         .wellness-ctr-booking {
+//             order: 4;
+//         }
+//     }
+// }
+
+
+main.learn-main {
+    section.intro-text {
+        padding: 125px 0;
+        background: $nude;
+        .image-wrapper {
+            grid-column: 2 / span 3;
+            @media (max-width: $mobile-bp) {
+                grid-column: 1 / span 12;
+                place-self: center;
+            }
+        }
+        .text-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            grid-column: 6 / span 5;
+            @media (max-width: $mobile-bp) {
+                grid-column: 1 / span 12;
+                place-self: center;
+            }
+            > *:not(:last-child) {
+                margin-bottom: 15px;
+            }
+        }
+    }
+    section.featured-products {
+        padding: 100px 0;
+
+        .title-wrapper {
+            grid-column: span 2;
+            @media (max-width: $mobile-bp) {
+                grid-column: 1 / span 12;
+                place-self: center;
+            }
+            display: flex;
+            align-items: center;
+        }
+        .featured-products-wrapper {
+            grid-column: span 10;
+            @media (max-width: $mobile-bp) {
+                margin-top: 15px;
+                grid-column: 1 / span 12;
+                place-self: center;
+            }
+        }
+
+    }
+}
+
+main.contact-main {
+    .intro-container {
+        position: relative;
+        @media (min-width: $mobile-bp) {
+            background: $pink;
+            padding: 125px 0;  
+        } 
+        .overlay {
+            top: 125px;
+        }
+        .intro-text {
+            @media (max-width: $mobile-bp) {
+                background: $pink;
+                padding: 125px 0;  
+            }  
+            .text-wrapper {
+                grid-column: 7 / 13;
+                @media (max-width: $mobile-bp) {
+                    grid-column: 1 / 13;
+                    width: 100%;
+                    overflow: hidden;
+                }
+                display: flex;
+                flex-wrap: wrap;
+                .contact-form {
+                    flex: 0 0 100%;
+                }
+                .inquiries {
+                    flex: 2;
+                }
+                .social-menu {
+                    flex: 1;
+                    @media (max-width: $mobile-bp) {
+                        flex: 100%;
+                        margin-top: 30px;
+                    }
+                }
+                .social-menu {
+                    ul {
+                        padding: 0;
+                        li:not(:last-child) {
+                            margin-right: 30px;
+                        }
+                        .icon-facebook a:after, .icon-pinterest a:after, .icon-instagram a:after {
+                            background: $black;
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+                h2 {
+                    font-size: 44px;
+                    line-height: 44px;
+                }
+                h3 {
+                    font-size: 28px;
+                    line-height: 30px;
+                    letter-spacing: 0.02em;
+                    margin-bottom: 17px;
+                }
+            }
+        }
+    }
+
+    .the-wellness-ctr {
+        position: relative;
+        @media (min-width: $mobile-bp) {
+            background: $nude;
+            .overlay {
+                bottom: 125px;
+                top: unset;
+            }
+        }  
+        @media (max-width: $mobile-bp) {
+            margin-top: -60px;
+            z-index: 10;
+        }
+        .wellness-ctr-info {
+            @media (max-width: $mobile-bp) {
+                background: $nude;
+            }  
+        }
+    }
+    .the-clinic {
+        @media (min-width: $mobile-bp) {
+            padding: 125px 0;
+        }
+        @media (max-width: $mobile-bp) {
+            z-index: 11;
+            position: relative;
+        }
+    }
+    section.clinic-info {
+        @media (max-width: $mobile-bp) {
+            padding: 0;
+            .image-wrapper {
+                grid-row: 2/3;
+            }
+            .text-wrapper {
+                grid-row: 1/2;
+                margin-bottom: 50px;
+            }
+        }
+    }
+    .overlay {
+        @media (max-width: $mobile-bp) {
+            margin-top: -60px;
+            .image-wrapper {
+                img {
+                    min-width: 100%;
+                    height: auto;
+                }
+            }
+        }            
+    }
+}
+ 
+
+
+
+p.address a {
+    text-decoration: underline;
+}
+
+button:hover {
+    .icon-arrow-up::after {
+        background: $pink;
+    }
+}
