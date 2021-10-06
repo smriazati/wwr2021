@@ -247,7 +247,7 @@ $transition: .5s ease-in all;
 img {
     // filter: grayscale(0);
     filter: blur(0);
-    transition: 0.3s ease all;
+    transition: 0.3s ease filter;
     &:hover {
         // opacity: 50%;
         // filter: grayscale(1);

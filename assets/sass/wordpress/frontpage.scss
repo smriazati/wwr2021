@@ -66,6 +66,12 @@ section.featured-pages {
         opacity: 1;
     }
 
+    .image-wrapper {
+        border-radius: 15px;
+        overflow: hidden;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
+    
     .card {
         display: flex;
         flex-direction: column;

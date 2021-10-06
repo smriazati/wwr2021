@@ -388,3 +388,9 @@ nav ul {
         overflow: hidden;
     }
 }
+
+figure.wp-block-image {
+    border-radius: 15px;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);    
+}

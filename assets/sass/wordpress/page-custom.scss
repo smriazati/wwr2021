@@ -34,7 +34,7 @@ section.about-bio {
 section.about-featured-pages {
     padding: 0;
     .grid-fixed {
-        grid-template-rows: min-content;
+        grid-template-rows: 450px;
     }
     .card {
         justify-content: center;
@@ -45,10 +45,28 @@ section.about-featured-pages {
             flex: 0 0 50%;
         }
     }
+    .image-wrapper {
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+    }
     .card-1 {
         @media (max-width: $mobile-bp) {
             margin-bottom: 0px;
         }
+    }
+
+    @media (max-width: $mobile-bp) {
+        .grid-fixed {
+            padding: 60px;
+        }
+        // .image-wrapper {
+        //     a {
+        //         display: flex;
+        //     }
+        // }
+        // img {
+        //     width: unset !important;
+        //     height: unset !important;
+        // }
     }
 
 }
@@ -60,7 +78,7 @@ section.clinic-featured-pages {
     margin: 0;
     background: $white;
     .grid-fixed {
-        grid-template-rows: min-content;
+        grid-template-rows: 450px;
     }
     .title-wrapper {
         > * {
@@ -94,6 +112,11 @@ section.clinic-featured-pages {
         .card-1 {
             margin-bottom: 0px;
         } 
+    }
+    .image-wrapper {
+        border-radius: 15px;
+        overflow: hidden;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
     }
 }
 
@@ -129,6 +152,17 @@ section.clinic-info {
         }
         li + li {
             margin-top: 5px;
+        }
+    }
+    .image-wrapper {
+        border-radius: 15px;
+    }
+    @media (max-width: $mobile-bp) {
+        .image-wrapper {
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+        .post-thumbnail img {
+            height: unset;
         }
     }
     .image-wrapper {
@@ -190,6 +224,17 @@ main.wellness-ctr-main {
     button:hover {
         .icon-arrow::after {
             background: $pink;
+        }
+    }
+    .image-wrapper {
+        border-radius: 15px;
+    }
+    @media (max-width: $mobile-bp) {
+        .image-wrapper {
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+        .post-thumbnail img {
+            height: unset;
         }
     }
 }

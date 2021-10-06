@@ -641,7 +641,7 @@ a:active {
 
 img {
   filter: blur(0);
-  transition: 0.3s ease all;
+  transition: 0.3s ease filter;
 }
 img:hover {
   filter: blur(10px);
@@ -1134,6 +1134,12 @@ nav ul {
     overflow: hidden;
   }
 }
+figure.wp-block-image {
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
 /* Forms
 --------------------------------------------- */
 input[type=button],
@@ -1345,7 +1351,7 @@ form.wpcf7-form > * input, form.wpcf7-form > * textarea,
 form.wpcf7-form > p input,
 form.wpcf7-form > p textarea {
   background: #e5bfab;
-  width: auto;
+  width: 100%;
   font-family: "Founders Grotesk", sans-serif;
   font-style: normal;
   font-weight: 300;
@@ -1388,7 +1394,7 @@ input:focus {
   width: 100%;
 }
 .form-row > * {
-  flex: 1;
+  flex: 0 0 50%;
 }
 .form-row.full-width > * {
   flex: 0 0 100%;
@@ -1396,10 +1402,10 @@ input:focus {
 .form-row.full-width > * * {
   width: 100%;
 }
-.form-row > *:not(:first-child) {
-  margin-left: 1%;
+.form-row > *:not(:last-child) {
+  margin-right: 1%;
+  margin-bottom: 30px;
 }
-
 .form-row + .form-row {
   margin-top: 30px;
 }
@@ -1437,6 +1443,11 @@ form.wpcf7-form > * input[type=submit]:hover {
   align-items: center;
   letter-spacing: 0.02em;
   color: #c59e77;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
 }
 
 .icon-facebook,
@@ -2055,7 +2066,7 @@ main.site-main {
 }
 @media (max-width: 1288px) {
   main.site-main {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 }
 @media (max-width: 960px) {
@@ -2691,6 +2702,11 @@ section.featured-pages .card-3 {
 }
 section.featured-pages a:hover {
   opacity: 1;
+}
+section.featured-pages .image-wrapper {
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 section.featured-pages .card {
   display: flex;
@@ -3392,11 +3408,12 @@ body.archive main.shop-main .sidebar {
   }
 }
 body.archive main.shop-main ul.products {
-  grid-row: 4/5;
+  grid-row: 3/4;
 }
 @media (max-width: 960px) {
   body.archive main.shop-main ul.products {
     grid-column: 1/span 12;
+    grid-row: 4/5;
     text-align: right;
   }
 }
@@ -3962,7 +3979,7 @@ section.about-featured-pages {
   padding: 0;
 }
 section.about-featured-pages .grid-fixed {
-  grid-template-rows: min-content;
+  grid-template-rows: 450px;
 }
 section.about-featured-pages .card {
   justify-content: center;
@@ -3973,9 +3990,17 @@ section.about-featured-pages .card .text-wrapper {
 section.about-featured-pages .card .image-wrapper {
   flex: 0 0 50%;
 }
+section.about-featured-pages .image-wrapper {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
 @media (max-width: 960px) {
   section.about-featured-pages .card-1 {
     margin-bottom: 0px;
+  }
+}
+@media (max-width: 960px) {
+  section.about-featured-pages .grid-fixed {
+    padding: 60px;
   }
 }
 
@@ -3986,7 +4011,7 @@ section.clinic-featured-pages {
   background: #fff;
 }
 section.clinic-featured-pages .grid-fixed {
-  grid-template-rows: min-content;
+  grid-template-rows: 450px;
 }
 section.clinic-featured-pages .title-wrapper {
   justify-content: flex-start;
@@ -4027,6 +4052,11 @@ section.clinic-featured-pages .card-3 {
     margin-bottom: 0px;
   }
 }
+section.clinic-featured-pages .image-wrapper {
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
 
 section.clinic-info {
   padding: 125px 0;
@@ -4064,6 +4094,17 @@ section.clinic-info .text-wrapper ul {
 }
 section.clinic-info .text-wrapper li + li {
   margin-top: 5px;
+}
+section.clinic-info .image-wrapper {
+  border-radius: 15px;
+}
+@media (max-width: 960px) {
+  section.clinic-info .image-wrapper {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+  section.clinic-info .post-thumbnail img {
+    height: unset;
+  }
 }
 section.clinic-info .image-wrapper {
   grid-column: span 6/13;
@@ -4127,6 +4168,17 @@ main.wellness-ctr-main section.overlay {
 }
 main.wellness-ctr-main button:hover .icon-arrow::after {
   background: #e5bfab;
+}
+main.wellness-ctr-main .image-wrapper {
+  border-radius: 15px;
+}
+@media (max-width: 960px) {
+  main.wellness-ctr-main .image-wrapper {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+  }
+  main.wellness-ctr-main .post-thumbnail img {
+    height: unset;
+  }
 }
 
 section.wellness-ctr-info {
