@@ -1,0 +1,352 @@
+@use '../imports.scss' as *;
+@use "sass:math";
+
+/* Forms
+--------------------------------------------- */
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: none;
+	border-color: transparent;
+	border-radius: 0;
+	background: $black;
+	color: $white;
+	line-height: 1;
+	padding: $spacer;
+	height: 100%;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: transparent;
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+	border-color: transparent;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: $black;
+	border: none;
+	border-radius: 0;
+	padding: $spacer;
+	height: 100%;
+
+	@media (max-width: $mobile-bp) {
+		padding: 5px 15px;
+	}
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: $black;
+}
+
+select {
+	border: none;
+}
+
+textarea {
+	width: 100%;
+}
+
+input.flat {
+	background: transparent;
+
+	&.light {
+		&::placeholder {
+			color: $white;
+		}
+
+		color: $white;
+	}
+
+	&.dark {
+		&::placeholder {
+			color: $black;
+		}
+
+		color: $black;
+	}
+}
+
+// search
+
+// form.search-form {
+// 	.no-results &,
+// 	.not-found &,
+// 	.error-404 & {
+// 		// width: 80%;
+// 		// margin: 0 auto;
+// 		margin-top: $spacer*2;
+// 	}
+// 	display: flex;
+// 	align-items: flex-end;
+// 	margin: 0 auto;
+// 	input[type="text"] {
+// 		text-align: center;
+// 		flex: 1;
+// 		text-transform: capitalize;
+// 		@media (max-width: $collapse-bp) {
+// 			width: 100%;
+// 		}
+// 	}
+// 	input[type="submit"] {
+// 		background: url('/wp-content/themes/pitp2020/assets/search-dark.png') no-repeat transparent;
+// 		margin: math.div($spacer, 3);
+// 		padding: math.div($spacer, 2);
+// 		background-size: contain;
+// 		opacity: 1;
+// 		transition: $transition;
+// 		&:hover {
+// 			opacity: .80;
+// 			cursor: pointer;
+// 		}
+// 	}
+// }
+
+
+nav.side-nav {
+	position: relative;
+
+	#header-nav-search button {
+		background: transparent;
+		padding: 0;
+		opacity: 1;
+		transition: $transition;
+
+		&:hover {
+			cursor: pointer;
+			opacity: .83;
+		}
+	}
+
+	.search-wrapper {
+		display: none;
+		position: fixed;
+		right: 0;
+		//top: $spacer*12;
+		width: 100%;
+		width: 100vw;
+		background: $sand;
+		color: $white;
+		padding: $spacer*2;
+
+		&.toggled {
+			display: flex;
+		}
+
+		form.search-form {
+			width: 50%;
+			background: $sand;
+			border-bottom: 2px solid $white;
+
+			input[type="text"] {
+				background: $sand;
+				color: $white;
+
+				&::placeholder {
+					color: $white;
+				}
+			}
+
+			input[type="submit"] {
+				background: url('/wp-content/themes/pitp2020/assets/search-light.png') no-repeat transparent;
+				background-size: contain;
+				background-position: bottom;
+				margin-bottom: $spacer;
+			}
+		}
+
+
+		.close-button {
+			padding: $spacer;
+
+			button {
+				background: $white !important;
+				height: 10px; // 10
+				position: absolute;
+				right: $spacer*2;
+				width: 2px; // 2
+				opacity: 1;
+				transition: $transition;
+				transform: rotate(45deg);
+
+				&:after {
+					background: $white !important;
+					content: "";
+					height: 2px; // 2
+					left: -4px; // -4
+					position: absolute;
+					top: 4px; // 4
+					width: 10px; // 10
+				}
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+
+// contact form
+
+form.wpcf7-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px 0;
+
+	>*,
+	>p {
+		width: 100%;
+
+		label {
+			font-family: 'Founders Grotesk';
+			font-style: normal;
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 20px;
+		}
+
+		input,
+		textarea {
+			background: $pink;
+			width: 100%;
+			@include pStyle();
+			height: 25px;
+			border-bottom: 1px solid black;
+
+			&:focus {
+				background: $nude;
+				border-radius: 10px;
+				outline: 0;
+				border: 0;
+			}
+		}
+
+		textarea {
+			resize: none;
+		}
+	}
+
+	@media (min-width: 80ch) {
+		max-width: 80ch;
+		margin: 0 auto;
+	}
+
+	@media (max-width: 80ch) {
+		width: 100%;
+	}
+}
+
+input:focus {
+	outline: 0;
+}
+
+.form-row {
+	display: flex;
+	// flex-wrap: wrap;
+	width: 100%;
+
+	>* {
+		flex: 0 0 50%;
+	}
+
+	&.full-width {
+		>* {
+			flex: 0 0 100%;
+
+			* {
+				width: 100%;
+			}
+		}
+	}
+
+	>*:not(:last-child) {
+		margin-right: 1%;
+		margin-bottom: 30px;
+	}
+
+	input {}
+}
+
+.form-row+.form-row {
+	margin-top: 30px;
+}
+
+form.wpcf7-form>* input[type="submit"] {
+	@include buttonTypeStyle($black);
+	background: transparent;
+	border: 1px solid black;
+	border-radius: 25px;
+	height: auto;
+	transition: .3s ease all;
+
+	&:hover {
+		cursor: pointer;
+		border-color: $pink;
+		color: $pink;
+	}
+}
+
+.wpcf7-response-output {
+	display: none;
+}
+
+.wpcf7-not-valid-tip {
+	font-style: italic;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 16px;
+	display: flex;
+	align-items: center;
+	letter-spacing: 0.02em;
+	color: $sand;
+}
+
+
+.form-item {
+	display: flex;
+	flex-direction: column;
+}

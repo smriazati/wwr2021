@@ -1,0 +1,33 @@
+@use 'defaults/first.scss';
+@use 'defaults/normalize.scss';
+@use 'defaults/underscores-base.scss';
+@use 'defaults/base.scss';
+@use 'defaults/forms.scss';
+@use 'defaults/icons.scss';
+@use 'defaults/buttons.scss';
+
+@use 'layout/container.scss';
+@use 'layout/header.scss';
+@use 'layout/footer.scss';
+
+@use 'wordpress/frontpage.scss';
+@use 'wordpress/single.scss';
+@use 'wordpress/archive.scss';
+@use 'wordpress/search.scss';
+@use 'wordpress/shop.scss';
+@use 'wordpress/page.scss';
+@use 'wordpress/error.scss';
+@use 'wordpress/page-custom.scss';
+@use 'wordpress/plugins.scss';
+@use 'wordpress/woocommerce.scss';
+
+
+
+body {
+    background: white;
+}
+
+#wpadminbar {
+    z-index: 999;
+    position: fixed !important;
+}

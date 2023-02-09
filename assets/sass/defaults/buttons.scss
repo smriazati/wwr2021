@@ -1,0 +1,92 @@
+@use '../imports.scss' as *;
+@use 'sass:math';
+
+.button,
+button {
+    border: 0;
+    background: transparent;
+    outline: 0;
+    border-radius: 0;
+    @include buttonTypeStyle($black);
+
+    a {
+        color: $black;
+        transition: .3s ease all;
+    }
+
+    border-bottom: 1px solid $black;
+    transition: .3s ease all;
+
+    &:hover {
+        a {
+            color: $pink;
+        }
+
+        border-color: $pink;
+    }
+
+    &.flat {
+        background: transparent;
+        border-bottom: 0;
+        padding: 0;
+
+        &.light {
+            color: $white;
+        }
+
+        &.dark {
+            color: $black;
+        }
+    }
+
+    &.bubble {
+        border: 1px solid black;
+        border-radius: 30px;
+
+        &:hover {
+            border-color: $pink;
+
+            a {
+                color: $pink;
+            }
+        }
+    }
+
+}
+
+button.contact-cta {
+    text-transform: uppercase;
+    display: flex;
+
+    a {
+        font-style: normal;
+    }
+
+    &:hover {
+        a {
+            font-style: italic;
+        }
+    }
+
+    span.icon-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+button:hover {
+    cursor: pointer;
+}
+
+.btn-round {
+    @include buttonTypeStyle($black);
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 25px;
+    height: auto;
+    transition: .3s ease all;
+    padding: 15px;
+}
